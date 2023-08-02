@@ -1,6 +1,5 @@
 require('dotenv').config();
 const app = require('./app');
-
 const { db } = require('./database/config');
 
 db.authenticate()

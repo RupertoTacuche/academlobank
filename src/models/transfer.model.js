@@ -11,6 +11,7 @@ const Transfer = db.define('transfers', {
     amount: {
         type: DataTypes.FLOAT,
         allowNull: false,
+        
     },
 
     senderUserId: {
