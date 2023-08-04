@@ -40,9 +40,11 @@ const User = db.define('user', {
             const salt = await bcrypt.genSalt(10);
             const secretPassword = await bcrypt.hash(user.password,salt);
             user.password = secretPassword;
-        }
-    }
-});
+        },
+    },
+}
+
+);
     
 
 module.exports = User;

@@ -28,7 +28,20 @@ exports.signup = catchAsync(async(req, res, next) => {
 });
 
 exports.login = catchAsync(async(req, res, next) => {
+    const{ password} = req.body;
+    const { user } = req;
+    //const {} = req;
+console.log(password, user)
+    if(!(await bcrypt.compare(password, user.password))){
+        return next(new AppError('Incorrect accountNumber or password'));
+    }
+    // aqui va un await
+    
+    const token = await generateJWT(user.id);
+
     res.status(200).json({
-    ok: true,
+    status: 'succes',
+    token, 
+    user,
     });
 });
