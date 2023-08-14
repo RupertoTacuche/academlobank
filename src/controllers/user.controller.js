@@ -30,6 +30,7 @@ exports.signup = catchAsync(async(req, res, next) => {
 exports.login = catchAsync(async(req, res, next) => {
     const{ password} = req.body;
     const { user } = req;
+
     //const {} = req;
 console.log(password, user)
     if(!(await bcrypt.compare(password, user.password))){
@@ -44,4 +45,5 @@ console.log(password, user)
     token, 
     user,
     });
-});
+});  
+
